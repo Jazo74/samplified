@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class TechQuestionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show', 'find');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -39,9 +43,7 @@ class TechQuestionController extends Controller
     {
         $validatedData = $request->validated();
         $question = TechQuestion::create($validatedData);
-
-        $request->session()->flash('status', 'A Q&A entry was created!');
-        
+        //$request->session()->flash('status', 'A Q&A entry was created!');
         return view('tech');
         //return redirect()->route('techquestions.show', ['techquestion' => $question->id]);
     }
@@ -104,9 +106,9 @@ class TechQuestionController extends Controller
 
     public function find(Request $request)
     {
-        dd($request["keyString"]);
+        //dd($request["keyString"]);
         $key = $request["keyString"];
-        $questions = TechQuestion::whereHas('tech_questions', function ($query) {$query->where('question', 'like', '%'. $key . '%'); })->get();
+        $questions = TechQuestion::where('question', 'like', '%' . $key . '%')->get();
         return view('questions.index', ['questions' => $questions]);
     }
 }

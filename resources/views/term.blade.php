@@ -4,12 +4,15 @@
 <div class="container">
     <h4 class="bg-dark text-light w-50 text-center py-2 mt-3 mx-auto" style="border-radius: 20px;">Terms</h4>
     <div class="card-deck text-center justify-content-center mt-3">
+        @guest
+        @else
         <div class="card bg-dark m-4" style="border-radius: 20px;">
             <div class="card-header text-white my-2"><a class="btn btn-lg btn-light" href="{{ route('terms.create') }}">Add</a></div>
             <div class="card-body text-light">
                     <h5 class="card-title m-1">Add a new Term</h5>
             </div>
         </div>
+        @endguest
         <div class="card bg-dark m-4" style="border-radius: 20px;">
             <div class="card-header text-white my-2"><a class="btn btn-lg btn-light" href="{{ route('terms.index') }}">Show</a></div>
             <div class="card-body text-light">

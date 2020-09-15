@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class TopicController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show', 'find');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -99,5 +104,13 @@ class TopicController extends Controller
 
         //$request->session()->flash('status', 'A Q&A post was deleted!');
         return view('topic');
+    }
+
+    public function find(Request $request)
+    {
+        //dd($request["keyString"]);
+        $key = $request["keyString"];
+        $topics = Topic::where('topic', 'like', '%' . $key . '%')->get();
+        return view('topics.index', ['topics' => $topics]);
     }
 }

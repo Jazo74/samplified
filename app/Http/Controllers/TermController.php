@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\DB;
 
 class TermController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show', 'find');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -35,9 +40,12 @@ class TermController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTerm $request)
     {
-        //
+        $validatedData = $request->validated();
+        $term = Term::create($validatedData);
+        //$request->session()->flash('status', 'A Q&A entry was created!');
+        return view('term');
     }
 
     /**
@@ -59,7 +67,8 @@ class TermController extends Controller
      */
     public function edit($id)
     {
-        //
+        $term = Term::findOrFail($id);
+        return view('terms.edit', ['term' => $term]);
     }
 
     /**
@@ -69,9 +78,15 @@ class TermController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreTerm $request, $id)
     {
-        //
+        $term = Term::findOrFail($id);
+        $validatedData = $request->validated();
+        $term->fill($validatedData);
+        $term->save();
+
+        //$request->session()->flash('status', 'The Q&A post was updated!');
+        return redirect()->route('term');
     }
 
     /**
@@ -82,7 +97,10 @@ class TermController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $term = Term::findOrFail($id);
+        $term->delete();
+        //$request->session()->flash('status', 'A Q&A post was deleted!');
+        return view('term');
     }
 
     public function find(Request $request)

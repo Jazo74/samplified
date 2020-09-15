@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class SnippetController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show', 'find');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -60,7 +65,7 @@ class SnippetController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('snippets.show', ['snippets' => Snippet::where('topic_id', $id)->get()]);
     }
 
     /**
