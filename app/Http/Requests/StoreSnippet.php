@@ -24,8 +24,8 @@ class StoreSnippet extends FormRequest
     public function rules()
     {
         return [
-            'topic_id' => 'required',
             'language' => 'required|max:30',
+            'serial' => 'required|max:30',
             'message_eng' => '',
             'message_hun' => '',
             'snippet' => 'required',

@@ -11,6 +11,10 @@
         <h5 class="text-primary font-weight-bold">Language</h5>
         <input class="form-control bg-dark text-light border-info" type="text" name="language" value="{{ old('language', $snippet->language ?? null) }}">
     </div>
+    <div class="form-group px-4 pt-1">
+        <h5 class="text-primary font-weight-bold">Serial</h5>
+        <input class="form-control bg-dark text-light border-info" type="text" name="serial" value="{{ old('serial', $snippet->serial ?? null) }}">
+    </div>
     <div class="form-group px-4"> 
         <h5 class="text-primary font-weight-bold">Message (English)</h5>
         <textarea class="form-control bg-dark text-light border-info" name="message_eng" rows="12" cols="50">{{ old('message_eng', $snippet->message_eng ?? null) }}</textarea>

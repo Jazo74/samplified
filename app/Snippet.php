@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Snippet extends Model
 {
-    protected $fillable = ['topic_id', 'language', 'message_eng', 'message_hun', 'snippet', 'output'];
+    protected $fillable = ['topic_id', 'language', 'serial', 'message_eng', 'message_hun', 'snippet', 'output'];
 
     public function topic()
     {   

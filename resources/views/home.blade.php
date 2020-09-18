@@ -5,7 +5,7 @@
     <div class="w-50">
         <div class="card-deck h-75">
             <h1 class="display-4 text-light">Have a look around!</h1>
-            <h5>You could find something useful...</h5>
+            <h4>You could find something useful...</h4>
         </div>
         <div class="card-deck border-top border-dark">
             <div class="card bg-primary border-0 px-0">
@@ -16,14 +16,14 @@
             </div>
             <div class="card bg-primary border-0 px-1">
                 <div class="card-body px-1">
-                    <h2 class="card-title text-dark font-weight-bold" style="font-family: 'Michroma', sans-serif;">83+</h2>
-                    <h5 class="card-text text-light">coding terms</h5>                    
+                <h2 class="card-title text-dark font-weight-bold" style="font-family: 'Michroma', sans-serif;">{{$techQuestionCount}}+</h2>
+                    <h5 class="card-text text-light">tech questions</h5>                    
                 </div>
             </div>    
             <div class="card bg-primary border-0 px-1">
                 <div class="card-body px-1">
-                    <h2 class="card-title text-dark font-weight-bold" style="font-family: 'Michroma', sans-serif;">12</h2>
-                    <h5 class="card-text text-light">topic</h5>                    
+                    <h2 class="card-title text-dark font-weight-bold" style="font-family: 'Michroma', sans-serif;">{{$termCount}}+</h2>
+                    <h5 class="card-text text-light">coding terms</h5>                    
                 </div>
             </div>    
         </div>

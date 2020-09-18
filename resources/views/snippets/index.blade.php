@@ -21,7 +21,6 @@
                 <p class="card-text d-inline pl-3" style="font-size: 22px; white-space: pre;">{{ $question->question }}</p>
                 <hr class="border-info">
                 <p class="card-text text-success d-inline" style="font-family: 'Michroma', sans-serif; font-size: 28px;">A:</p>
-                {{-- <p class="card-text d-inline pl-3" style="font-size: 22px; white-space: pre;">{{ $question->answer }}</p> --}}
                 <p class="bg-dark text-light border-info" style="font-size: 22px; white-space: pre;">{{ $question->answer }}</p>
         </div>
     </div>

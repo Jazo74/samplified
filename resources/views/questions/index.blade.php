@@ -21,14 +21,14 @@
         </div>
         <div class="card-body">
                 <p class="card-text text-info d-inline" style="font-family: 'Michroma', sans-serif; font-size: 28px;">Q:</p>
-                <p class="card-text d-inline pl-3" style="font-size: 22px; white-space: pre;">{{ $question->question }}</p>
+                <p class="card-text d-inline pl-3" style="font-size: 22px; white-space: pre-wrap;">{{ $question->question }}</p>
                 <hr class="border-info">
                 <div class="d-flex">
                     <div class="d-inline">
                         <p class="card-text text-success d-inline" style="font-family: 'Michroma', sans-serif; font-size: 28px;">A:</p>
                     </div>
                     <div class="d-inline pl-3">
-                        <p class="bg-dark text-light border-info" style="font-size: 22px; white-space: pre;">{{ $question->answer }}</p>
+                        <p class="bg-dark text-light border-info" style="font-size: 22px; white-space: pre-wrap;">{{ $question->answer }}</p>
                     </div>     
                 </div>   
             </div>
@@ -38,4 +38,7 @@
         <H3 class="text-info text center">No questions yet!</H3>
     </div>
     @endforelse
+    <div class="py-3">
+        <p class="text-primary">-</p>
+    </div>
 @endsection('content')

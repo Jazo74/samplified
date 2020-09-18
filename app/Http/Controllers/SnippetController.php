@@ -30,14 +30,13 @@ class SnippetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('snippets.create');
-    }
+    // public function create()
+    // {
+    //     return view('snippets.create');
+    // }
 
     public function create2($id)
     {
-        echo('create2 ' . $id );
         return view('snippets.create', ['topic' => Topic::findOrFail($id)]);
     }
 
@@ -65,7 +64,10 @@ class SnippetController extends Controller
      */
     public function show($id)
     {
-        return view('snippets.show', ['snippets' => Snippet::where('topic_id', $id)->get()]);
+        return view('snippets.show', ['snippets' => 
+        Snippet::where('topic_id', $id)
+        ->orderBy('serial', 'asc')
+        ->orderBy('language', 'asc')->get()]);
     }
 
     /**
@@ -76,7 +78,8 @@ class SnippetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $snippet = Snippet::findOrFail($id);
+        return view('snippets.edit', ['snippet' => $snippet]);
     }
 
     /**
@@ -86,9 +89,13 @@ class SnippetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreSnippet $request, $id)
     {
-        //
+        $snippet = Snippet::findOrFail($id);
+        $validatedData = $request->validated();
+        $snippet->fill($validatedData);
+        $snippet->save();
+        return redirect()->route('topics.index');
     }
 
     /**
@@ -99,6 +106,8 @@ class SnippetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $snippet = Snippet::findOrFail($id);
+        $snippet->delete();
+        return view('topic');
     }
 }

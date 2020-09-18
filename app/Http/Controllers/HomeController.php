@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TechQuestion;
+use App\Term;
 
 class HomeController extends Controller
 {
@@ -23,7 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $techQuestionCount = TechQuestion::All()->count();
+        $termCount = Term::All()->count();
+        //return view('home', ['tecQuestionCount' => $techQuestionCount]);
+        return view('home', compact('techQuestionCount', 'termCount'));
+
     }
 
     public function topic()

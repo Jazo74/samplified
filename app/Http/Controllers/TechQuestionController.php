@@ -86,7 +86,7 @@ class TechQuestionController extends Controller
         $question->save();
 
         //$request->session()->flash('status', 'The Q&A post was updated!');
-        return redirect()->route('tech');
+        return redirect()->route('techquestions.index');
     }
 
     /**
