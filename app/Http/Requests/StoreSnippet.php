@@ -24,12 +24,28 @@ class StoreSnippet extends FormRequest
     public function rules()
     {
         return [
-            'language' => 'required|max:30',
             'serial' => 'required|max:30',
-            'message_eng' => '',
-            'message_hun' => '',
-            'snippet' => 'required',
-            'output' => '',
+            'topic_id' => 'required',
+            'python_note_eng' => 'required',
+            'python_note_hun' => 'required',
+            'python_syntax' => 'required',
+            'python_output' => 'required',
+            'csharp_note_eng' => 'required',
+            'csharp_note_hun' => 'required',
+            'csharp_syntax' => 'required',
+            'csharp_output' => 'required',
+            'java_note_eng' => 'required',
+            'java_note_hun' => 'required',
+            'java_syntax' => 'required',
+            'java_output' => 'required',
+            'jscript_note_eng' => 'required',
+            'jscript_note_hun' => 'required',
+            'jscript_syntax' => 'required',
+            'jscript_output' => 'required',
+            'php_note_eng' => 'required',
+            'php_note_hun' => 'required',
+            'php_syntax' => 'required',
+            'php_output' => 'required',
         ];
     }
 }

@@ -26,5 +26,7 @@
     @endif
 
 </form>
-    
+<div class="py-3">
+    <p class="text-primary">-</p>
+</div>    
 @endsection('content')

@@ -12,26 +12,25 @@
             <form class="d-inline" method="POST" action="{{ route('topics.destroy', ['topic' => $topic->id]) }}">
                 @csrf
                 @method('DELETE')
-                <input class="btn btn-danger border-danger font-weight-bold btn float-right mr-3 ml-2 px-3" type="submit" value="Delete">
+                <input class="btn btn-sm btn-danger border-danger font-weight-bold btn float-right mr-3 ml-2 px-3" type="submit" value="Delete">
             </form>
-            <a class="btn btn-primary border-primary font-weight-bold btn float-right mr-2 ml-2 px-4" href="{{ route('topics.edit', ['topic' => $topic->id]) }}">Edit</a>
-            <a class="btn btn-success border-success font-weight-bold btn float-right mr-2 ml-2 px-4" href="{{ route('snippets.create2', ['id' => $topic->id]) }}">New Syntax</a>
+            <a class="btn btn-sm btn-primary border-primary font-weight-bold btn float-right mr-2 ml-2 px-4" href="{{ route('topics.edit', ['topic' => $topic->id]) }}">Edit</a>
+            <a class="btn btn-sm btn-success border-success font-weight-bold btn float-right mr-2 ml-2 px-4" href="{{ route('snippets.create2', ['id' => $topic->id]) }}">New Syntax</a>
             @endguest
-            <a class="btn btn-info border-info font-weight-bold btn float-right mr-2 ml-2 px-4" href="{{ route('snippets.show', ['snippet' => $topic->id]) }}">Show Syntaxes</a>
+            <a class="btn btn-sm btn-info border-info font-weight-bold btn float-right mr-2 ml-2 px-4" href="{{ route('snippets.show', ['snippet' => $topic->id]) }}">Show Syntaxes</a>
             <h6 class="float-right text-muted mr-5">Updated {{ $topic->updated_at->diffForHumans() }}</h6>
             <h6 class="float-right text-muted mr-5">Created {{ $topic->created_at->diffForHumans() }}</h6>
         </div>
         <div class="card-body">
-                <p class="card-text text-success d-inline" style="font-family: 'Michroma', sans-serif; font-size: 20px;">Topic:</p>
-                <p class="card-text d-inline pl-3" style="font-size: 22px;">{{ $topic->topic }}</p>
-                <br>
-                <p class="card-text text-success d-inline" style="font-family: 'Michroma', sans-serif; font-size: 20px;">Subtopic:</p>
-                <p class="bg-dark text-light border-info d-inline pl-3" style="font-size: 22px;">{{ $topic->sub_topic }}</p>
+                {{-- <p class="card-text text-light d-inline" style="font-family: 'Michroma', sans-serif; font-size: 20px;">Topic</p>
+                <p class="card-text text-success d-inline" style="font-family: 'Michroma', sans-serif; font-size: 20px;"> / Subtopic:</p> --}}
+                <p class="card-text d-inline text-light" style="font-size: 22px;">{{ $topic->topic }} /</p>
+                <p class="card-text d-inline text-success pl-0" style="font-size: 22px;">{{ $topic->sub_topic }}</p>
                 @guest
                 @else
                 <br>
-                <p class="card-text text-success d-inline" style="font-family: 'Michroma', sans-serif; font-size: 20px;">Serial:</p>
-                <p class="bg-dark text-light border-info d-inline pl-3" style="font-size: 22px;">{{ $topic->serial }}</p>
+                <p class="card-text text-success d-inline" style="font-family: 'Michroma', sans-serif; font-size: 16px;">Serial:</p>
+                <p class="bg-dark text-light border-info d-inline pl-3" style="font-size: 16px;">{{ $topic->serial }}</p>
                 @endguest
         </div>
     </div>

@@ -27,4 +27,7 @@
             </ul>
         </div>
     @endif
+    <div class="py-3">
+        <p class="text-primary">-</p>
+    </div>
 @endsection('content')

@@ -66,8 +66,7 @@ class SnippetController extends Controller
     {
         return view('snippets.show', ['snippets' => 
         Snippet::where('topic_id', $id)
-        ->orderBy('serial', 'asc')
-        ->orderBy('language', 'asc')->get()]);
+        ->orderBy('serial', 'asc')->get()]);
     }
 
     /**

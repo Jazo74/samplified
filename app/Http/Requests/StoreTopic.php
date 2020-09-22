@@ -26,7 +26,7 @@ class StoreTopic extends FormRequest
         return [
             'topic' => 'required|max:50',
             'sub_topic' => 'required|max:50',
-            'serial' => 'required|max:100',
+            'serial' => 'required|max:1000',
         ];
     }
 }

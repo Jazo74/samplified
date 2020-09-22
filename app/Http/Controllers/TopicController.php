@@ -21,7 +21,8 @@ class TopicController extends Controller
      */
     public function index()
     {
-        return view('topics.index', ['topics' => Topic::all()]);
+        $topics = Topic::all()->sortBy('serial');
+        return view('topics.index', ['topics' => $topics]);
     }
 
     /**
