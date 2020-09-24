@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appT')
 
 @section('content')
     <h3 class="w-50 bg-dark text-info text-center mt-3 mb-4 py-2 mx-auto" style="bottom: 10px; border-radius: 20px;">Tech Interview Q&A</h3>
@@ -39,6 +39,6 @@
     </div>
     @endforelse
     <div class="py-3">
-        <p class="text-primary">-</p>
+        <p class="text-dark">-</p>
     </div>
 @endsection('content')

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appS')
 
 @section('content')
         <h3 class="sticky-top bg-dark text-info rounded mb-4 pl-5 py-2 mx-4  border border-info" style="bottom: 10px;">Tech Interview Q&A</h3>

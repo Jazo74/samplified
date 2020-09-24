@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appT')
 
 @section('content')
 <div class="container">
@@ -6,27 +6,27 @@
     <div class="card-deck text-center justify-content-center mt-3">
         @guest
         @else
-        <div class="card bg-dark m-4" style="border-radius: 20px;">
+        <div class="card bg-dark border-info m-4" style="border-radius: 20px;">
             <div class="card-header text-white my-2"><a class="btn btn-lg btn-info" href="{{ route('techquestions.create') }}">Add</a></div>
             <div class="card-body text-light">
                     <h5 class="card-title m-1">Add a new Q&A</h5>
             </div>
         </div>
         @endguest
-        <div class="card bg-dark m-4" style="border-radius: 20px;">
+        <div class="card bg-dark border-info m-4" style="border-radius: 20px;">
             <div class="card-header text-white my-2"><a class="btn btn-lg btn-info" href="{{ route('techquestions.index') }}">Show</a></div>
             <div class="card-body text-light">
                     <h5 class="card-title m-1">Show All Q&A pair</h5>
             </div>
         </div>
-        <div class="card bg-dark m-4" style="border-radius: 20px;">
+        <div class="card bg-dark border-info m-4" style="border-radius: 20px;">
             <div class="card-header text-white my-2"><a class="btn btn-lg btn-info" href="{{ route('techquestions.index') }}">Quiz!</a></div>
             <div class="card-body text-light">
                     <h5 class="card-title m-1">Check your knowledge!</h5>
             </div>
         </div>
     </div>
-    <div class="card bg-dark m-2" style="border-radius: 20px;">
+    <div class="card bg-dark border-info m-2" style="border-radius: 20px;">
         <div class="card-header text-center">
             <h5 class="card-title text-light mb-0">Find a Q&A pair</h5>
         </div>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appH')
 
 @section('content')
 <div class="container my-auto d-flex pt-4">
@@ -28,39 +28,166 @@
             </div>    
         </div>
     </div>
-    <div>
-        <div class="card-deck mt-5 ml-5">
-            <div class="card bg-dark text-light text-center" style="border-radius: 20px;">
-                <a class="nav-link p-0" href="{{ route('term') }}"><i class="card-img-top fas fa-question-circle text-light py-3" style="font-size:80px;"></i></a>
-                <div class="card-body text-center border-top border-light p-3">
-                            <h4 class="card-title">Terms</h4>
-                            {{-- <p class="card-text">Libraries, Frameworks, JDK, SDK, MTK...whaat?</p> --}}
-                </div>
+    <div class="w-50">
+        <div class="card-deck mt-5 pl-5">
+            <div class="card bg-primary text-light text-center border-0 rounded">
+                <button class="btn" onclick="showTerm()"><i class="card-img-top fas fa-question-circle text-light" style="font-size:40px;"></i></button>
             </div>
-            <div class="card bg-dark text-light text-center ml-1" style="border-radius: 20px;">
-                <a class="nav-link p-0" href="{{ route('topic') }}"><i class="card-img-top fab fa-leanpub text-success py-3" style="font-size:80px;"></i></a>
-                <div class="card-body text-center border-top border-success p-3">
-                            <h4 class="card-title">Syntax</h4>
-                            {{-- <p class="card-text ">Simple short sample codes in multiple programming languages</p> --}}
-                </div>
+            <div class="card bg-dark text-light text-center border-0 rounded">
+                <button class="btn" onclick="showSyntax()"><i class="card-img-top fab fa-leanpub text-light" style="font-size:40px;"></i></button>
+            </div>
+            <div class="card bg-dark text-light text-center border-0 rounded">
+                <button class="btn" onclick="showTech()"><i class="card-img-top fas fa-users text-light" style="font-size:40px;"></i></button>
+            </div>
+            <div class="card bg-dark text-light text-center border-0 rounded">
+                <button class="btn" onclick="showCode()"><i class="card-img-top fas fa-code text-light" style="font-size:40px;"></i></button>
             </div>
         </div>
-        <div class="card-deck mt-3 ml-5">
-                <div class="card bg-dark text-light text-center" style="border-radius: 20px;">
-                    <a class="nav-link p-0" href="{{ route('tech') }}"><i class="card-img-top fas fa-users text-info py-3" style="font-size:80px;"></i></a>
-                    <div class="card-body text-center border-top border-info p-3">
-                                <h4 class="card-title">Tech Interview</h4>
-                                {{-- <p class="card-text">Questions and Answers for tech interview</p> --}}
+
+        {{-- ================================================================= --}}
+
+        {{-- term submenu section --}}
+        <div class="mt-0 pl-5 text-light" id="section-term">
+            <div class="bg-primary py-2 text-center rounded">
+                <h4 class="card-title d-inline m-1 text-light">Coding terms</h4>
+            </div>
+            <div class="bg-primary mt-2 py-2 pr-3 rounded border border-light">
+                <form method="POST" action="{{ route('terms.find') }}">
+                    @csrf
+                    <div class="input-group">
+                    <input class="form-control bg-primary text-light border-light ml-3" type="text" name="keyString" placeholder="Type...">
+                    <div class="input-group-append">
+                        <button class="btn btn-light" type="submit">Find</button>
                     </div>
-                </div>
-                <div class="card bg-dark text-light text-center ml-1" style="border-radius: 20px;">
-                    <a class="nav-link p-0" href="{{ route('tech') }}"><i class="card-img-top fas fa-code text-primary py-3" style="font-size:80px;"></i></a>
-                    <div class="card-body text-center border-top border-primary p-3">
-                                <h4 class="card-title">Coding Interview</h4>
-                                {{-- <p class="card-text">Popular coding questions and solutions for coding interview</p> --}}
                     </div>
-                </div>
+                </form>
+            </div>
+            <div class="bg-primary mt-2 py-3 rounded border border-light">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.index') }}">Show</a>
+                <h5 class="card-title d-inline m-1">Show all terms</h5>
+            </div>
+            <div class="bg-primary mt-2 py-3 rounded border border-light">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.index') }}">Quiz!</a>
+                <h5 class="card-title d-inline m-1">Check your knowledge</h5>
+            </div>
+            <div class="bg-primary mt-2 py-3 rounded border border-light">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.create') }}">Add</a>
+                <h5 class="card-title d-inline m-1">Add new terms</h5>
+            </div>
+        </div>
+        {{-- syntax submenu section --}}
+        <div class="mt-0 pl-5 text-light" id="section-syntax" style="display: none;">
+            <div class="bg-success py-2 text-light text-center rounded">
+                <h4 class="card-title d-inline m-1 text-light">Syntaxes</h4>
+            </div>
+            <div class="bg-success mt-2 py-2 pr-3 rounded">
+                <form method="POST" action="{{ route('terms.find') }}">
+                    @csrf
+                    <div class="input-group">
+                    <input class="form-control bg-success text-light border-light ml-3" type="text" name="keyString" placeholder="Type...">
+                    <div class="input-group-append">
+                        <button class="btn btn-light" type="submit">Find</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-success mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.index') }}">Show</a>
+                <h5 class="card-title d-inline m-1">Show all terms</h5>
+            </div>
+            <div class="bg-success mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.index') }}">Quiz!</a>
+                <h5 class="card-title d-inline m-1">Check your knowledge</h5>
+            </div>
+            <div class="bg-success mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.create') }}">Add</a>
+                <h5 class="card-title d-inline m-1">Add new terms</h5>
+            </div>
+        </div>
+        {{-- tech submenu section --}}
+        <div class="mt-0 pl-5 text-light" id="section-tech" style="display: none;">
+            <div class="bg-info py-2 text-center rounded">
+                <h4 class="card-title d-inline m-1 text-light">Tech Q&A</h4>
+            </div>
+            <div class="bg-info mt-2 py-2 pr-3 rounded">
+                <form method="POST" action="{{ route('terms.find') }}">
+                    @csrf
+                    <div class="input-group">
+                    <input class="form-control bg-info text-dark border-dark ml-3" type="text" name="keyString" placeholder="Type...">
+                    <div class="input-group-append">
+                        <button class="btn btn-light" type="submit">Find</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-info mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.index') }}">Show</a>
+                <h5 class="card-title d-inline m-1">Show all terms</h5>
+            </div>
+            <div class="bg-info mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.index') }}">Quiz!</a>
+                <h5 class="card-title d-inline m-1">Check your knowledge</h5>
+            </div>
+            <div class="bg-info mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.create') }}">Add</a>
+                <h5 class="card-title d-inline m-1">Add new terms</h5>
+            </div>
+        </div>
+        {{-- code submenu section --}}
+        <div class="mt-0 pl-5 text-light" id="section-code" style="display: none;">
+            <div class="bg-danger py-2 text-center rounded">
+                <h4 class="card-title d-inline m-1 text-light">Coding tasks</h4>
+            </div>
+            <div class="bg-danger mt-2 py-2 pr-3 rounded">
+                <form method="POST" action="{{ route('terms.find') }}">
+                    @csrf
+                    <div class="input-group">
+                    <input class="form-control bg-danger text-light ml-3" type="text" name="keyString" placeholder="Type...">
+                    <div class="input-group-append">
+                        <button class="btn btn-light" type="submit">Find</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-danger mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.index') }}">Show</a>
+                <h5 class="card-title d-inline m-1">Show all terms</h5>
+            </div>
+            <div class="bg-danger mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.index') }}">Quiz!</a>
+                <h5 class="card-title d-inline m-1">Check your knowledge</h5>
+            </div>
+            <div class="bg-danger mt-2 py-3 rounded">
+                <a class="btn btn btn-light d-inline ml-3" href="{{ route('terms.create') }}">Add</a>
+                <h5 class="card-title d-inline m-1">Add new terms</h5>
+            </div>
         </div>
     </div>
 </div>
+<script type="application/javascript">
+    function showTech(){
+        document.getElementById("section-tech").style.display = "block";
+        document.getElementById("section-syntax").style.display = "none";
+        document.getElementById("section-term").style.display = "none";
+        document.getElementById("section-code").style.display = "none";
+    }
+    function showSyntax(){
+        document.getElementById("section-tech").style.display = "none";
+        document.getElementById("section-syntax").style.display = "block";
+        document.getElementById("section-term").style.display = "none";
+        document.getElementById("section-code").style.display = "none";
+    }
+    function showTerm(){
+        document.getElementById("section-tech").style.display = "none";
+        document.getElementById("section-syntax").style.display = "none";
+        document.getElementById("section-term").style.display = "block";
+        document.getElementById("section-code").style.display = "none";
+    }
+    function showCode(){
+        document.getElementById("section-tech").style.display = "none";
+        document.getElementById("section-syntax").style.display = "none";
+        document.getElementById("section-term").style.display = "none";
+        document.getElementById("section-code").style.display = "block";
+    }
+</script>
 @endsection

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appS')
 
 @section('content')
 <h3 class="w-50 bg-dark text-center text-success mb-4 pl-5 py-2 mx-auto" style="bottom: 10px; border-radius: 18px;">Creating Topics</h3>

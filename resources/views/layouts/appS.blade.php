@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top pt-0 pb-0" style="font-family: 'Michroma', sans-serif;">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top pt-0 pb-0 border-bottom border-success" style="font-family: 'Michroma', sans-serif;">
             <a class="navbar-brand text-primary py-0 px-3 ml-0 mr-5 my-1" href="{{ url('/home') }}" style="font-size: 26px; border-radius: 20px;">
             => {{ config('app.name', 'Laravel') }}
             </a></h1>
@@ -77,7 +77,7 @@
         <main class="min-vh-100 pt-5 align-items-center bg-dark">
                 @yield('content')
         </main>
-        <nav class="navbar fixed-bottom navbar-dark bg-dark my-0 py-1">
+        <nav class="navbar fixed-bottom navbar-dark bg-dark my-0 py-1 border-top border-success">
             <a class="navbar-brand my-0 py-0 text-light" href="#">&copy 2020. Jármy Zoltán</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

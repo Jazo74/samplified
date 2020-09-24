@@ -7,16 +7,16 @@
         <div class="card-header">
             <h6 class="float-left text-muted"># {{ $snippet->id }}</h6>
             @if ($snippet->language === "Python (3.x)")
-                <img class="ml-3 mx-0 p-0" src="{{asset('python.png')}}" alt="pyhton.logo" style="height: 40px; width: auto;">
+                <img class="ml-3 mx-0 p-0" src="{{asset('python.png')}}" alt="pyhton.logo" style="height: 60px; width: auto;">
             @endif
             @if ($snippet->language === "C#")
-                <img class="ml-3 mx-0 p-0" src="{{asset('csharp.png')}}" alt="csharp.logo" style="height: 50px; width: auto;">
+                <img class="ml-3 mx-0 p-0" src="{{asset('csharp.png')}}" alt="csharp.logo" style="height: 60px; width: auto;">
             @endif
             @if ($snippet->language === "PHP")
-                <img class="ml-3 mx-0 p-0" src="{{asset('php.png')}}" alt="php.logo" style="height: 50px; width: auto;">
+                <img class="ml-3 mx-0 p-0" src="{{asset('php.png')}}" alt="php.logo" style="height: 60px; width: auto;">
             @endif
             @if ($snippet->language === "Javascript")
-                <img class="ml-3 mx-0 p-0" src="{{asset('javascript.png')}}" alt="javascript.logo" style="height: 50px; width: auto;">
+                <img class="ml-3 mx-0 p-0" src="{{asset('javascript.png')}}" alt="javascript.logo" style="height: 60px; width: auto;">
             @endif
             @guest
             @else   

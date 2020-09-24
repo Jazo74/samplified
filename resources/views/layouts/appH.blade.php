@@ -74,7 +74,7 @@
             </div>
         </nav>
 
-        <main class="min-vh-100 pt-5 align-items-center bg-dark">
+        <main class="min-vh-100 pt-5 align-items-center bg-primary">
                 @yield('content')
         </main>
         <nav class="navbar fixed-bottom navbar-dark bg-dark my-0 py-1">

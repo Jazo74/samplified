@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appS')
 
 @section('content')
     <h3 class="w-50 bg-dark text-info text-center mt-3 mb-4 py-2 mx-auto" style="bottom: 10px; border-radius: 20px;">Snippet edit</h3>
@@ -110,4 +110,7 @@
             </ul>
         </div>
     @endif
+    <div class="py-3">
+        <p class="text-primary">-</p>
+    </div> 
 @endsection('content')
