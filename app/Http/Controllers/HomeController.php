@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\TechQuestion;
 use App\Term;
+use App\Snippet;
+
 
 class HomeController extends Controller
 {
@@ -27,8 +29,9 @@ class HomeController extends Controller
     {
         $techQuestionCount = TechQuestion::All()->count();
         $termCount = Term::All()->count();
+        $syntaxCount = Snippet::All()->count() * 5;
         //return view('home', ['tecQuestionCount' => $techQuestionCount]);
-        return view('home', compact('techQuestionCount', 'termCount'));
+        return view('home', compact('techQuestionCount', 'termCount', 'syntaxCount'));
 
     }
 

@@ -25,9 +25,9 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top pt-0 pb-0 border-bottom border-info" style="font-family: 'Michroma', sans-serif;">
-            <a class="navbar-brand text-primary py-0 px-3 ml-0 mr-5 my-1" href="{{ url('/home') }}" style="font-size: 26px; border-radius: 20px;">
-            => {{ config('app.name', 'Laravel') }}
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top pt-0 pb-0 border-bottom" style="font-family: 'Michroma', sans-serif; border-color: rgb(60 251 164);">
+            <a class="navbar-brand py-0 px-3 ml-0 mr-5 my-1" href="{{ url('/home') }}" style="font-size: 26px; border-radius: 20px; color: rgb(60 251 164);">
+             {{ config('app.name', 'Laravel') }}
             </a></h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -46,11 +46,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
-                        @endif
+                        @endif --}}
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle mt-2 ml-3 mr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -78,7 +78,7 @@
                 @yield('content')
         </main>
         <nav class="navbar fixed-bottom navbar-dark bg-dark my-0 py-1 border-top border-info">
-            <a class="navbar-brand my-0 py-0 text-light" href="#">&copy 2020. Jármy Zoltán</a>
+            <a class="navbar-brand my-0 py-0 text-light" href="#">&copy 2020. Zoltán Jármy</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link btn btn-sm btn-primary text-center text-white px-2 py-0 mr-2" style="font-size: 16px;" href="{{ route('code') }}">DONATE NOW</a>

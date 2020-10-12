@@ -4,7 +4,7 @@
     <h3 class="w-50 bg-dark text-info text-center mt-3 mb-4 py-2 mx-auto" style="bottom: 10px; border-radius: 20px;">Tech Interview Q&A</h3>
     @forelse ($questions as $question)
 
-    <div class="card bg-dark mx-4 my-3 text-light" style="border-radius: 20px;">
+    <div class="card bg-dark mx-4 my-3 text-light border border-secondary" style="border-radius: 20px;">
         <div class="card-header">
             <h6 class="float-left text-muted"># {{ $question->id }}</h6>
             @guest
